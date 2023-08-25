@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { server } from "../index";
-import { Button, Container, HStack, Radio, RadioGroup } from "@chakra-ui/react";
+import {
+  Button,
+  Container,
+  HStack,
+  Radio,
+  RadioGroup,
+  Text,
+} from "@chakra-ui/react";
 import Loader from "./Loader";
 import ErrorComponent from "./ErrorComponent";
 import CoinCard from "./CoinCard";
@@ -21,7 +28,7 @@ const Coins = () => {
     setLoading(true);
   };
 
-  const btns = new Array(132).fill(1);
+  const btns = new Array(102).fill(1);
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -69,7 +76,14 @@ const Coins = () => {
               />
             ))}
           </HStack>
-
+          <Text
+            ml={"46%"}
+            mt={"2%"}
+            fontWeight={"bold"}
+            fontFamily={"sans-serif"}
+          >
+            Page : {page}
+          </Text>
           <HStack w={"full"} overflowX={"auto"} p={"8"}>
             {btns.map((item, index) => (
               <Button
